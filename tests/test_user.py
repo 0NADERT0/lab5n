@@ -4,7 +4,6 @@ from src.main import app
 
 client = TestClient(app)
 
-# Существующие пользователи
 users = [
     {
         'id': 1,
@@ -34,7 +33,7 @@ def test_create_user_with_valid_email():
     '''Создание пользователя с уникальной почтой'''
     new_user = {
         "name": "New User",
-        "email": "new.user@mail.com"  # Уникальный email
+        "email": "new.user@mail.com"
     }
     response = client.post("/api/v1/user", json=new_user)
     assert response.status_code == 201
